@@ -35,7 +35,7 @@ export default class ChartJSComponentView extends FormInputBaseComponentView {
 				return this.getFormDataDisplay(displayContainer);
 				
 			case FormInputBaseComponentView.VIEW_INFO: 
-                let dataDisplaySource = dataDisplayHelper.getStandardErrorDataSource(this.getApp(),this);
+                dataSource = dataDisplayHelper.getStandardErrorDataSource(this.getApp(),this);
                 return new StandardErrorDisplay(displayContainer,dataDisplaySource);
 
             default:
