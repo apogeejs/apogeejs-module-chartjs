@@ -1,4 +1,4 @@
-import Chart from "./chartjs.esm.js";
+import Chart from "../lib/chartjs.es.js";
 
 //These are in lieue of the import statements
 let {DataDisplay,FormInputBaseComponentView,StandardErrorDisplay,dataDisplayHelper} = apogeeview;
@@ -36,7 +36,7 @@ export default class ChartJSComponentView extends FormInputBaseComponentView {
 				
 			case FormInputBaseComponentView.VIEW_INFO: 
                 dataSource = dataDisplayHelper.getStandardErrorDataSource(this.getApp(),this);
-                return new StandardErrorDisplay(displayContainer,dataDisplaySource);
+                return new StandardErrorDisplay(displayContainer,dataSource);
 
             default:
                 console.error("unrecognized view element: " + viewType);
