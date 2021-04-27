@@ -72,7 +72,7 @@ ChartJSCell.formResultToChartConfig = function(formResult) {
     catch(error) {
         if(error.stack) console.error(error.stack);
         let chartConfig = {
-            errorMsg: error.toString()
+            errorMsg: error.message ? error.message : error ? error.toString() : "Unknown"
         }
         return chartConfig;
     }
