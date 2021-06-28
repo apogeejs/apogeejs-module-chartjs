@@ -34,7 +34,7 @@ export default class ChartJSComponentView extends FormInputBaseComponentView {
             case ChartJSComponentView.VIEW_INPUT:
 				return this.getFormDataDisplay(displayContainer);
 				
-			case FormInputBaseComponentView.VIEW_INFO: 
+			case FormInputBaseComponentView.VIEW_ERROR: 
                 dataSource = dataDisplayHelper.getStandardErrorDataSource(this.getApp(),this);
                 return new StandardErrorDisplay(displayContainer,dataSource);
 
@@ -102,9 +102,9 @@ ChartJSComponentView.VIEW_CHART = "Chart";
 ChartJSComponentView.VIEW_INPUT = "Input";
 
 ChartJSComponentView.VIEW_MODES = [
-	FormInputBaseComponentView.VIEW_INFO_MODE_ENTRY,
+	FormInputBaseComponentView.VIEW_ERROR_MODE_ENTRY,
 	{name: ChartJSComponentView.VIEW_CHART, label: "Chart", isActive: false},
-    FormInputBaseComponentView.INPUT_VIEW_MODE_INFO
+    FormInputBaseComponentView.INPUT_VIEW_MODE_CONFIG
 ];
 
 ChartJSComponentView.TABLE_EDIT_SETTINGS = {
