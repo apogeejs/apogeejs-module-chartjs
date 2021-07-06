@@ -103,7 +103,11 @@ ChartJSComponentView.VIEW_INPUT = "Input";
 
 ChartJSComponentView.VIEW_MODES = [
 	FormInputBaseComponentView.VIEW_ERROR_MODE_ENTRY,
-	{name: ChartJSComponentView.VIEW_CHART, label: "Chart", isActive: false},
+	{
+		name: ChartJSComponentView.VIEW_CHART,
+		label: "Chart",
+		isActive: false
+	},
     FormInputBaseComponentView.INPUT_VIEW_MODE_CONFIG
 ];
 
