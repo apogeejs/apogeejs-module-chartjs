@@ -540,14 +540,27 @@ const FORM_LAYOUT = [
 										"type": "panel",
 										"formData": [
 											{
-												"type": "textField",
-												"label": "Label: ",
-												"size": 40,
-												"hint": "text",
-												"key": "label",
-												"meta": {
-													"excludeValue": ""
-												}
+												type: "horizontalLayout",
+												formData: [
+													{
+														"type": "textField",
+														"label": "Label: ",
+														"size": 40,
+														"hint": "text",
+														"key": "label",
+														"meta": {
+															"excludeValue": "",
+															"expression": "choice",
+															"expressionChoiceKey": "labelValueType"
+														}
+													},
+													{
+														type: "radioButtonGroup",
+														entries: [["Value","value"],["Reference","reference"]],
+														value: "value",
+														key: "labelValueType"
+													}
+												]
 											},
 											{
 												"type": "showHideLayout",
@@ -1054,14 +1067,27 @@ const FORM_LAYOUT = [
 										"type": "panel",
 										"formData": [
 											{
-												"type": "textField",
-												"label": "Label: ",
-												"size": 40,
-												"hint": "text",
-												"key": "label",
-												"meta": {
-													"excludeValue": ""
-												}
+												type: "horizontalLayout",
+												formData: [
+													{
+														"type": "textField",
+														"label": "Label: ",
+														"size": 40,
+														"hint": "text",
+														"key": "label",
+														"meta": {
+															"excludeValue": "",
+															"expression": "choice",
+															"expressionChoiceKey": "labelValueType"
+														}
+													},
+													{
+														type: "radioButtonGroup",
+														entries: [["Value","value"],["Reference","reference"]],
+														value: "value",
+														key: "labelValueType"
+													}
+												]
 											},
 											{
 												"type": "showHideLayout",
@@ -1636,14 +1662,27 @@ const FORM_LAYOUT = [
 												"key": "display"
 											},
 											{
-												"type": "textField",
-												"label": "Text: ",
-												"size": 40,
-												"hint": "text",
-												"key": "text",
-												"meta": {
-													"excludeValue": ""
-												}
+												type: "horizontalLayout",
+												formData: [
+													{
+														"type": "textField",
+														"label": "Text: ",
+														"size": 40,
+														"hint": "text",
+														"key": "text",
+														"meta": {
+															"excludeValue": "",
+															"expression": "choice",
+															"expressionChoiceKey": "textValueType"
+														}
+													},
+													{
+														type: "radioButtonGroup",
+														entries: [["Value","value"],["Reference","reference"]],
+														value: "value",
+														key: "textValueType"
+													}
+												]
 											},
 											{
 												"type": "dropdown",
