@@ -1,11 +1,9 @@
 //These are in lieue of the import statements
-let {FormInputBaseComponent} = apogeeapp;
+let {Component,getFormComponentDefaultMemberJson} = apogeeapp;
 
 /** This is a simple custom component example. */
-export default class ChartJSComponent extends FormInputBaseComponent {
-    constructor(member,modelManager,instanceToCopy,keepUpdatedFixed) {
-        super(member,modelManager,instanceToCopy,keepUpdatedFixed);
-    }
-}
+export default class ChartJSComponent extends Component {};
 
-FormInputBaseComponent.initializeClass(ChartJSComponent,"Chart.js Cell","apogeeapp.ChartJSCell","apogeeapp.ChartJSCell-data");
+ChartJSComponent.displayName = "Chart.js Cell";
+ChartJSComponent.uniqueName = "apogeeapp.ChartJSCell";
+ChartJSComponent.DEFAULT_MEMBER_JSON = getFormComponentDefaultMemberJson("apogeeapp.ChartJSCell-data");
