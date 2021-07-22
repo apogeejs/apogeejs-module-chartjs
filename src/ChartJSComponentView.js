@@ -1,52 +1,21 @@
 import Chart from "../lib/chartjs.es.js";
 
 //These are in lieue of the import statements
-let {DataDisplay,FormInputBaseComponentView,StandardErrorDisplay,dataDisplayHelper} = apogeeview;
+let {DataDisplay,FormInputBaseComponentView,getErrorViewModeEntry,dataDisplayHelper} = apogeeview;
 
 /** This is a graphing component using ChartJS. It consists of a single data table that is set to
  * hold the generated chart data. The input is configured with a form, which gives multiple options
  * for how to set the data. */
 export default class ChartJSComponentView extends FormInputBaseComponentView {
 
-    constructor(modelView,component) {
-        super(modelView,component);
-    };
-
-    /**  This method retrieves the table edit settings for this component instance
-     * @protected */
-    getTableEditSettings() {
-        return ChartJSComponentView.TABLE_EDIT_SETTINGS;
-    }
-
-    /** This method should be implemented to retrieve a data display of the give type. 
-     * @protected. */
-    getDataDisplay(displayContainer,viewType) {
-
-		var dataSource;
-
-        //create the new view element;
-        switch(viewType) {
-
-            case ChartJSComponentView.VIEW_CHART:
-                dataSource = this._getChartDataSource();
-                return new ChartJSDisplay(displayContainer,dataSource);
-
-            case ChartJSComponentView.VIEW_INPUT:
-				return this.getFormDataDisplay(displayContainer);
-				
-			case FormInputBaseComponentView.VIEW_ERROR: 
-                dataSource = dataDisplayHelper.getStandardErrorDataSource(this.getApp(),this);
-                return new StandardErrorDisplay(displayContainer,dataSource);
-
-            default:
-                console.error("unrecognized view element: " + viewType);
-                return null;
-        }
-    }
-
     //=================================
     // Implementation Methods
     //=================================
+
+	getChartViewDisplay(displayContainer) {
+		let dataSource = this._getChartDataSource();
+		return new ChartJSDisplay(displayContainer,dataSource);
+	}
 
     
     /** This method returns the form layout.
@@ -98,22 +67,17 @@ export default class ChartJSComponentView extends FormInputBaseComponentView {
 // Static properties
 //======================================
 
-ChartJSComponentView.VIEW_CHART = "Chart";
-ChartJSComponentView.VIEW_INPUT = "Input";
-
 ChartJSComponentView.VIEW_MODES = [
-	FormInputBaseComponentView.VIEW_ERROR_MODE_ENTRY,
+	getErrorViewModeEntry(),
 	{
-		name: ChartJSComponentView.VIEW_CHART,
+		name: "Chart",
 		label: "Chart",
-		isActive: false
+		isActive: true,
+		getDataDisplay: (componentView,displayContainer) => componentView.getChartViewDisplay(displayContainer)
 	},
-    FormInputBaseComponentView.INPUT_VIEW_MODE_CONFIG
+    FormInputBaseComponentView.getConfigViewModeEntry(),
 ];
 
-ChartJSComponentView.TABLE_EDIT_SETTINGS = {
-    "viewModes": ChartJSComponentView.VIEW_MODES
-}
 
 //===============================
 // External Settings
