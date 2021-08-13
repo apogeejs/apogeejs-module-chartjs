@@ -6,6 +6,8 @@ export default class ChartJSComponent extends Component {};
 
 ChartJSComponent.CLASS_CONFIG = {
     displayName: "Chart.js Cell",
-    uniqueName: "apogeeapp.ChartJSCell",
-    defaultMemberJson: getFormComponentDefaultMemberJson("apogeeapp.ChartJSCell-data")
+    defaultMemberJson: getFormComponentDefaultMemberJson("apogeeapp.ChartJSCell-data"),
+    defaultComponentJson: {
+        type: "apogeeapp.ChartJSCell"
+    }
 }
