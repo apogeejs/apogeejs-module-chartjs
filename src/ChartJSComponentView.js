@@ -6,7 +6,7 @@ let {DataDisplay,FormInputBaseComponentView,getErrorViewModeEntry,dataDisplayHel
 /** This is a graphing component using ChartJS. It consists of a single data table that is set to
  * hold the generated chart data. The input is configured with a form, which gives multiple options
  * for how to set the data. */
-export default class ChartJSComponentView extends FormInputBaseComponentView {
+class ChartJSComponentView extends FormInputBaseComponentView {
 
     //=================================
     // Implementation Methods
@@ -64,36 +64,26 @@ export default class ChartJSComponentView extends FormInputBaseComponentView {
 }
 
 //======================================
-// Static properties
+// View Config
 //======================================
-
-ChartJSComponentView.VIEW_MODES = [
-	getErrorViewModeEntry(),
-	{
-		name: "Chart",
-		label: "Chart",
-		isActive: true,
-		getDataDisplay: (componentView,displayContainer) => componentView.getChartViewDisplay(displayContainer)
-	},
-    FormInputBaseComponentView.getConfigViewModeEntry(),
-];
-
-
-//===============================
-// External Settings
-//===============================
-
-/** This is the component name with which this view is associated. */
-ChartJSComponentView.componentName = "apogeeapp.ChartJSCell";
-
-/** If true, this indicates the component has a tab entry */
-ChartJSComponentView.hasTabEntry = false;
-/** If true, this indicates the component has an entry appearing on the parent tab */
-ChartJSComponentView.hasChildEntry = true;
-
-/** This is the icon url for the component. */
-ChartJSComponentView.ICON_RES_PATH = "/icons3/chartCellIcon.png";
-
+const ChartJSComponentViewConfig = {
+	componentType: "apogeeapp.ChartJSCell",
+	viewClass: ChartJSComponentView,
+	viewModes: [
+		getErrorViewModeEntry(),
+		{
+			name: "Chart",
+			label: "Chart",
+			isActive: true,
+			getDataDisplay: (componentView,displayContainer) => componentView.getChartViewDisplay(displayContainer)
+		},
+		FormInputBaseComponentView.getConfigViewModeEntry(),
+	],
+	hasTabEntry: false,
+	hasChildEntry: true,
+	iconResPath: "/icons3/chartCellIcon.png"
+}
+export default ChartJSComponentViewConfig;
 
 //================================
 // Chart Data Display

@@ -1,6 +1,6 @@
 import ChartJSComponentMember from "./ChartJSComponentMember.js";
 import ChartJSComponentConfig from "./ChartJSComponent.js";
-import ChartJSComponentView from "./ChartJSComponentView.js";
+import ChartJSComponentViewConfig from "./ChartJSComponentView.js";
 
 const ChartJSComponentModule = {
     initApogeeModule: function() {
@@ -17,7 +17,7 @@ const ChartJSComponentModule = {
         //-------------------------------
         //register the button component view
         //-------------------------------
-        apogeeview.registerComponentView(ChartJSComponentView);
+        apogeeview.registerComponentView(ChartJSComponentViewConfig);
     },
 
     removeApogeeModule: function() {
@@ -34,7 +34,7 @@ const ChartJSComponentModule = {
         //-------------------------------
         //register the parse csv component view
         //-------------------------------
-        apogeeview.unregisterComponentView(ChartJSComponentView);
+        apogeeview.unregisterComponentView(ChartJSComponentViewConfig);
     }
 }
 
