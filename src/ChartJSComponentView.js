@@ -42,23 +42,13 @@ class ChartJSComponentView extends FormInputBaseComponentView {
             },
 
             getData: () => {
-				//if we return valid data, it must be MUTABLE for the chart library
-				//so in this case we will make a copy of the data.
-				//otherwise we return standard wrapped data (or invalid value)
-				let chartConfigMember = this.getComponent().getField("member.data");
-				if(chartConfigMember.getState() != apogeeutil.STATE_NORMAL) {
-					return dataDisplayHelper.getStandardWrappedMemberData(chartConfigMember);
+				let wrappedData = dataDisplayHelper.getWrappedMemberData(this,"member.data");
+				//we need to pass non-immutable data, so we will make a copy of it to return.
+				if(wrappedData.data != apogeeutil.INVALID_VALUE) {
+					wrappedData.data = apogeeutil.jsonCopy(wrappedData.data);
 				}
-				else {
-					let data = chartConfigMember.getData();
-					if(data != apogeeutil.INVALID_VALUE) {
-						return apogeeutil.jsonCopy(data);
-					}
-					else {
-						return apogeeutil.INVALID_VALUE
-					}
-				}
-            },
+				return wrappedData;
+			}
         }
     }
 }
