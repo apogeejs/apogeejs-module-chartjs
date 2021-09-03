@@ -69,8 +69,6 @@ const ChartJSComponentViewConfig = {
 		},
 		FormInputBaseComponentView.getConfigViewModeEntry(),
 	],
-	hasTabEntry: false,
-	hasChildEntry: true,
 	iconResPath: "/icons3/chartCellIcon.png"
 }
 export default ChartJSComponentViewConfig;
