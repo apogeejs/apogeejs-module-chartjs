@@ -1,6 +1,6 @@
 const ChartJSComponentMember = {
     defineMember: function() {
-        apogee.defineHardcodedJsonTable(DATA_MEMBER_TYPE_NAME,DATA_MEMBER_FUNCTION_BODY);
+        apogee.defineHardcodedDataMember(DATA_MEMBER_TYPE_NAME,DATA_MEMBER_FUNCTION_BODY);
     },
 
     undefineMember: function() {

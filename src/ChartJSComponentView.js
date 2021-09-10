@@ -3,7 +3,7 @@ import Chart from "../lib/chartjs.es.js";
 //These are in lieue of the import statements
 let {DataDisplay,FormInputBaseComponentView,getErrorViewModeEntry,dataDisplayHelper} = apogeeview;
 
-/** This is a graphing component using ChartJS. It consists of a single data table that is set to
+/** This is a graphing component using ChartJS. It consists of a single data member that is set to
  * hold the generated chart data. The input is configured with a form, which gives multiple options
  * for how to set the data. */
 class ChartJSComponentView extends FormInputBaseComponentView {
