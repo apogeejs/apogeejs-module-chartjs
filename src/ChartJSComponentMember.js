@@ -19,7 +19,7 @@ export {ChartJSComponentMember as default};
 const DATA_MEMBER_TYPE_NAME = "apogeeapp.ChartJSCell-data";
 
 const DATA_MEMBER_FUNCTION_BODY = `
-let chartJsData = apogeeModuleExport("chartjs");
+let chartJsData = apogeeModuleExport("apogeejs-module-chartjs");
 return chartJsData.formResultToChartConfig(formResult);
 `
 
