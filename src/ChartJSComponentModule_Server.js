@@ -16,6 +16,10 @@ const ChartJSComponentModule = {
         // unregister the custom member
         //------------------------------
         ChartJSComponentMember.undefineMember();
+    },
+
+    getDataExport: function() {
+        return ChartJSComponentMember.getModelDataExport();
     }
 }
 

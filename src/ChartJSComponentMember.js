@@ -5,6 +5,10 @@ const ChartJSComponentMember = {
 
     undefineMember: function() {
         apogee.Model.removeMemberGenerator(DATA_MEMBER_TYPE_NAME);
+    },
+
+    getModelDataExport: function() {
+        return modelDataExport;
     }
 }
 
@@ -15,16 +19,15 @@ export {ChartJSComponentMember as default};
 const DATA_MEMBER_TYPE_NAME = "apogeeapp.ChartJSCell-data";
 
 const DATA_MEMBER_FUNCTION_BODY = `
-return ChartJSCell.formResultToChartConfig(formResult);
+let chartJsData = apogeeModuleExport("chartjs");
+return chartJsData.formResultToChartConfig(formResult);
 `
 
 //==========================
 // Here we export a function into the globals we will use in the member function name(params)
 //==========================
 
-let ChartJSCell = {};
-
-__globals__.ChartJSCell = ChartJSCell;
+let modelDataExport = {};
 
 const EMPTY_CHART_CONFIG = {
 data: {
@@ -34,7 +37,7 @@ options: {}
 }
 
 /** This method loads the config structure that will be passed to the chart data display. */
-ChartJSCell.formResultToChartConfig = function(formResult) {
+modelDataExport.formResultToChartConfig = function(formResult) {
     try {
         let chartConfig;
         if(formResult) {

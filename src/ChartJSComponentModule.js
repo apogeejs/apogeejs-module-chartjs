@@ -35,6 +35,10 @@ const ChartJSComponentModule = {
         //register the parse csv component view
         //-------------------------------
         apogeeview.unregisterComponentView(ChartJSComponentViewConfig);
+    },
+
+    getDataExport: function() {
+        return ChartJSComponentMember.getModelDataExport();
     }
 }
 
