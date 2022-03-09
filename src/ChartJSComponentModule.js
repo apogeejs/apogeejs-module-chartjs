@@ -13,11 +13,6 @@ const ChartJSComponentModule = {
         //register the button component
         //-------------------------------
         apogeeapp.componentInfo.registerComponent(ChartJSComponentConfig);
-
-        //-------------------------------
-        //register the button component view
-        //-------------------------------
-        apogeeview.registerComponentView(ChartJSComponentViewConfig);
     },
 
     removeApogeeModule: function() {
@@ -30,11 +25,6 @@ const ChartJSComponentModule = {
         //register the parse csv component
         //-------------------------------
         apogeeapp.componentInfo.unregisterComponent(ChartJSComponentConfig);
-
-        //-------------------------------
-        //register the parse csv component view
-        //-------------------------------
-        apogeeview.unregisterComponentView(ChartJSComponentViewConfig);
     },
 
     getDataExport: function() {
